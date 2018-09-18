@@ -11,14 +11,8 @@ var
 begin
 write('Введите координаты точки x, y через пробеле или ENTER:');
 readln(x, y);
-if ((x < 0) or (x > 0.3)) and (y > 0.3)  then
-begin
-	if (x*x + y*y) < 1 then
-	begin
-		u := x*x - 1;
-	end
-	else u := abs(x - 1);
-end
+if (x > 0) and (y > 0) and (x*x + y*y <= 0.3) then u := abs(x - 1)
+else if (y > 0) and (x*x + y*y < 1) then u := x*x - 1
 else u := abs(x - 1);
 write('U = ', u);
 end.
