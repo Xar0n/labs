@@ -7,12 +7,12 @@
 }
 program task60g;
 var
-	x, y, u: real;
+	X, Y, U: real;
 begin
-write('Введите координаты точки x, y через пробеле или ENTER:');
-readln(x, y);
-if (x > 0) and (y > 0) and (x*x + y*y <= 0.3) then u := abs(x - 1)
-else if (y > 0) and (x*x + y*y < 1) then u := x*x - 1
-else u := abs(x - 1);
-write('U = ', u);
+write('Введите координаты точки X, Y через пробеле или ENTER:');
+readln(X, Y);
+if (X > 0) and (Y > 0) and (X*X + Y*Y <= 0.3) then U := abs(X - 1)
+else if (Y > 0) and (X*X + Y*Y < 1) then U := X*X - 1
+else U := abs(X - 1);
+write('U = ', U);
 end.
