@@ -1,23 +1,57 @@
-program task_2_1;
-var
-   x, y, u, a, eps: real;
-   k, n: integer;
+program l2_1;
+uses crt;
+var 
+	x, eps, a, y, addendum, f, f1, f2: real;
+	n, k: integer;
 begin
-write('Введите x:');
-readln(x);
-write('Введите а:');
+repeat
+	write('Введите аргумент x:');
+	readln(x)
+until abs(x) < 1;
+
+repeat
+	write('Введите точность EPS:');
+	readln(eps)
+until eps > 0;
+
+repeat
+	write('Введите число слагаемых k:');
+	readln(k)
+until k > 0;
+
+write('Введите  аргумент a:');
 readln(a);
-write('Введите точность EPS:');
-readln(eps);
-if (eps > 0) and (eps < 0) and (abs(x) < 1) then
+
+addendum := sin(a);
+y := sin(a);
+f := sin(x+a);
+f1 := y;
+f2 := y;
+n := 1;
+
+while (abs(addendum) >= eps) do
 begin
-	u := sin(a);
-	for i := 1 to n do
-	begin
-       	y := y + u;
-       	inc(k);
-        u := u*x*sin(a+k*pi/2)/k*sin(a + (k-1)pi/2);
-    end
-    write('u = ', u);
-end
+  addendum := addendum*x*sin(a+n*pi/2) / (n*sin(a+(n-1)*pi/2));
+  y := y + addendum;
+  inc(n);
+end;
+f1 := y;
+y := sin(a);
+addendum := sin(a);
+
+for n := 1 to k do
+begin
+  addendum := addendum*x*sin(a+n*pi/2) / (n*sin(a+(n-1)*pi/2));
+  y := y + addendum;
+end;
+f2 := y;
+
+writeln('eps = ', eps);
+writeln('x = ', x);
+writeln('k = ', k);
+writeln('f1 = ', f1);
+writeln('f2 = ', y);
+writeln('f = ', f);
+
+
 end.
