@@ -21,6 +21,6 @@ until (d > 0)
       inc(i);
       s := round(s + s/(i/(i+1)));
     end;
-  writeln('Помощников было:', s mod 10 );
+  writeln('Помощников было:', i mod 10 );
   end
 end.
