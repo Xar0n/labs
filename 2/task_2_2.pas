@@ -6,8 +6,11 @@ begin
 repeat
   write('Введите услилие необходимое для вытаскивания репки:');
   readln(n);
+until (n > 0)
+repeat
   write('Введите усилие с которым дед тянет репку:');
   readln(d);
+until (d > 0)
   i := 0;
   s := d;
   if d >= n then writeln('Дед вывез сам')
@@ -20,5 +23,4 @@ repeat
     end;
   writeln('Помощников было:', s mod 10 );
   end
-until (n > 0)
 end.
