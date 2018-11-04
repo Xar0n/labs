@@ -1,3 +1,4 @@
+{Дано целое N, найти s=1/a +1/a2+1/a3 +....+1/an.}
 program сontrol_task_15;
 var N, i: integer;
     s, addendum, a: real;
