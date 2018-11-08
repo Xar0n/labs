@@ -6,8 +6,8 @@ type
    matrix = array[1..9, 1..9] of integer;
 var
    a: matrix;
-   line, temp: array[1..9] of integer;
-   i, j, g, m, n, sum, k: integer;
+   line: array[1..9] of integer;
+   i, j, g, m, n, sum, temp: integer;
 begin
 cls;
 sum := 0;
@@ -40,13 +40,13 @@ begin
        begin
           for g := 1 to n do
           begin
-             temp[g] := a[j, g];
+             temp := a[j, g];
              a[j, g] := a[j+1, g];
-             a[j+1, g] := temp[g];
+             a[j+1, g] := temp;
           end;
-          k := line[j];
+          temp := line[j];
           line[j] := line[j+1];
-          line[j+1] := k;
+          line[j+1] := temp;
        end
    end
 end;
