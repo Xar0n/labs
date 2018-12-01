@@ -1,5 +1,5 @@
-{Дан вектор Y(n), n< 12. Сформировать вектор С из ненулевых элементов вектора Y, 
-предшествующих первому отрицательному элементу вектора.}
+{Р”Р°РЅ РІРµРєС‚РѕСЂ Y(n), n< 12. РЎС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РІРµРєС‚РѕСЂ РЎ РёР· РЅРµРЅСѓР»РµРІС‹С… СЌР»РµРјРµРЅС‚РѕРІ РІРµРєС‚РѕСЂР° Y, 
+РїСЂРµРґС€РµСЃС‚РІСѓСЋС‰РёС… РїРµСЂРІРѕРјСѓ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРјСѓ СЌР»РµРјРµРЅС‚Сѓ РІРµРєС‚РѕСЂР°.}
 program task_3_1;
 uses crt;
 type vector = array [1..11] of integer;
@@ -10,29 +10,33 @@ var
 begin
 flag := true;
 repeat
-    writeln('Как вы хотите задать вектор?');
-    writeln('1.Вручную');
-    writeln('2.Автоматически');
-    readln(choice); 
+    writeln('РљР°Рє РІС‹ С…РѕС‚РёС‚Рµ Р·Р°РґР°С‚СЊ РІРµРєС‚РѕСЂ?');
+    writeln('1.Р’СЂСѓС‡РЅСѓСЋ');
+    writeln('2.РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
+    readln(choice);
 until (choice < 3) and (choice > 0);
+
+repeat
+    write('Р’РІРµРґРёС‚Рµ 0 < n < 12(РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ):');
+    readln(n);
+until (n > 0) and (n < 12);
+
 case choice of
 1:
-    repeat
-        inc(n);
-        writeln('Введите ', n, '-ый элемент вектора:');
-        readln(temp);
-        if temp = 0 then break;
-        Y[n] := temp;
-        if (flag) and (Y[n] < 0) then
+begin
+    for i := 1 to n do
+    begin
+        writeln('Р’РІРµРґРёС‚Рµ ', i, '-С‹Р№ СЌР»РµРјРµРЅС‚ РІРµРєС‚РѕСЂР°:');
+        readln(Y[i]);
+        if (flag) and (Y[i] < 0) then
         begin
-           index_min := n;
+           index_min := i;
            flag := false;
-        end
-    until (n = 11);
+        end;
+    end;
+end;
 2:
-    repeat
-        write('Введите 0 < n < 12:');
-        readln(n);
+    begin
         if (n > 0) and (n < 12) then
         begin
             for i := 1 to n do
@@ -43,13 +47,13 @@ case choice of
             begin
                 index_min := i;
                 flag := false;
-            end
+            end;
          end;
         writeln();
-        end
-    until (n > 0) and (n < 12);
+        end;
+     end;
 end;
-writeln('Вектор Y:');
+writeln('Р’РµРєС‚РѕСЂ Y:');
 for i := 1 to n do
 begin
    write(Y[i]:3);
@@ -57,7 +61,7 @@ end;
 writeln;
 if index_min <> 0 then
 begin
-writeln('Вектор C:');
+writeln('Р’РµРєС‚РѕСЂ C:');
 c_index := 0;
 for j := index_min to n do
 begin
@@ -81,11 +85,12 @@ begin
    end
 end;
 writeln;
-writeln('Отсортированный массив:');
+writeln('РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:');
 for i := 1 to c_index do
 begin
    write(C[i]:3);
 end
 end
-else write('Вектор C нельзя сформировать');
+else write('Р’РµРєС‚РѕСЂ C РЅРµР»СЊР·СЏ СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ');
+read();
 end.
