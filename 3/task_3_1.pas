@@ -30,7 +30,7 @@ begin
         readln(Y[i]);
         if (flag) and (Y[i] < 0) then
         begin
-           index_min := i;
+           index_min := i - 1;
            flag := false;
         end;
     end;
@@ -45,7 +45,7 @@ end;
             write(Y[i]:3);
             if (flag) and (Y[i] < 0) then
             begin
-                index_min := i;
+                index_min := i - 1;
                 flag := false;
             end;
          end;
@@ -63,7 +63,7 @@ if index_min <> 0 then
 begin
 writeln('Вектор C:');
 c_index := 0;
-for j := index_min to n do
+for j := index_min downto n do
 begin
    if Y[j] <> 0 then
    begin
