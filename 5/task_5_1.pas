@@ -10,7 +10,7 @@
 program task_5_1;
 uses crt;
 var
-   text, text1, number_string: string;
+   text, text1, text2, number_string: string;
    number: real;
    i, code: integer;
    flag: boolean;
@@ -22,12 +22,13 @@ if (text[length(text)] <> ' ') then insert(' ', text, length(text)+1);
 writeln('Текст до преобразования: ', text);
 flag := true;
 i := 1;
-while pos('д', text) > 0 do text[pos('д', text)] := 'т';
 repeat
    if flag then
    begin
-       val(copy(text, 1, pos(' ', text)), number, code);
-       if code > 1 then
+       text2 := copy(text, 1, pos(' ', text))
+       delete(text, pos(' ', text), 1);
+       val(text2, number, code);
+       if code = 0 then
        begin
            str(number*5, number_string);
            delete(text, 1, pos(' ', text)-1);
@@ -43,5 +44,6 @@ repeat
    else delete(text, 1, pos(' ', text));
    inc(i);
 until length(text) = 0;
+while pos('т', text1) > 0 do text1[pos('д', text1)] := 'т';
 writeln('Текст после преобразования: ', text1);
 end.
