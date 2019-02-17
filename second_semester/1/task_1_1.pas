@@ -44,7 +44,7 @@ begin
    end
 end;
 
-function max(var arr: vector; quantity: byte): real;
+function max(arr: vector; quantity: byte): real;
 var max_element: real;
 begin
    max_element := arr[1];
